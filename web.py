@@ -1,11 +1,12 @@
-from flask import Flask, request
+from flask import Flask, request, render_template
 
 app = Flask(__name__)
 
 
 @app.route("/")
 def index():
-    return 'Your User Agent is {}'.format(request.headers.get('User-Agent'))
+    agent = 'Your User Agent is {}'.format(request.headers.get('User-Agent'))
+    return render_template('index.html', agent=agent)
 
 
 if __name__ == "__main__":
