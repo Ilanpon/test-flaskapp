@@ -1,11 +1,11 @@
-from flask import Flask
+from flask import Flask, request
 
 app = Flask(__name__)
 
 
 @app.route("/")
 def index():
-    return 'Hello World in Flask'
+    return 'Hello World in Flask. Your User Agent is {}'.format(request.headers.get('User-Agent'))
 
 
 if __name__ == "__main__":
